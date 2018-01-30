@@ -28,7 +28,7 @@
         </div>
       <p class="start"><img src="images/prize_start.png" alt=""></p>
       <ul class="prize_set">
-      	<li class="all_people">当前人数<input type="num" placeholder="输入总人数" id="allCount" value="293"></li>
+      	<li class="all_people">当前抽奖总人数<input type="num"  id="allCount"></li>
           <li class="set_grade">奖项
             <select id="set_grade">
               <option>选择奖项</option>
@@ -55,13 +55,16 @@
   var myNumber;
   var arr = [];
   var code = [];//总人数
-  var all = $('#allCount').val();
+//var all = $('#allCount').val();
+	var all = '';
   $('#allCount').change(function(){
     all = $('#allCount').val();
+    $(this).attr('disabled','disabled');
+    for(var i=1;i<=all;i++){
+	  	code.push(i)
+	  }
   });
-  for(var i=1;i<=all;i++){
-  	code.push(i)
-  }
+ 
 	
 	var voice = document.getElementById("voice");
 
@@ -102,7 +105,9 @@
             showRandomNum(num);
           }, 10);
           voice.src = "m1.mp3";
-          voice.play()
+          voice.play();
+          
+          $('#allCount').val(code.length);
         }   
       }else{
  				voice.src = "m02.wav";
@@ -114,7 +119,9 @@
         	code.splice($.inArray(n,1))
         	arr.push(n)
         });
-      
+        console.log("中奖号码："+arr);
+      	console.log("剩余抽奖人数为:"+code.length);
+      	
         clearInterval(myNumber);
         $(this).find("img").attr("src","images/prize_start.png");
 				
