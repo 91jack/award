@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+<title>2018年会抽奖</title>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="prize_con">
+      <p class="prize_grade"><span>开始抽奖</span></p>
+        <div class="prize_list vetically">
+          <ul>
+            <li>000</li>
+            <li>000</li>
+            <li>000</li>
+            <li>000</li>
+            <li>000</li>
+            <li>000</li>
+            <li>000</li>
+            <li>000</li>
+            <li>000</li>
+            <li>000</li>  
+          </ul>
+        </div>
+      <p class="start"><img src="images/prize_start.png" alt=""></p>
+      <ul class="prize_set">
+      	<li class="all_people">当前人数<input type="num" placeholder="输入总人数" id="allCount" value="293"></li>
+          <li class="set_grade">奖项
+            <select id="set_grade">
+              <option>选择奖项</option>
+              <option>纪念奖</option>
+              <option>一等奖</option>
+              <option>二等奖</option>
+              <option>三等奖</option>
+            </select>
+          </li>
+          <li class="set_people">中奖人数<input type="num" id="prizeCount"></li>
+      </ul>
+      <div class="company">
+	  	<p>重庆同港资产管理有限公司</p>
+	  	<p>重庆渝先通信设备有限公司</p>
+	  	<p>重庆渐臻科技有限公司</p>
+	  	<p>重庆圣雅广告传媒有限公司</p>
+	  </div>
+  </div>
+<audio src="m1.mp3" id="voice"></audio>  
+</div>
+
+<input type="hidden" value="0" id="prize_btn">
+<script>
+  var myNumber;
+  var arr = [];
+  var code = [];//总人数
+  var all = $('#allCount').val();
+  $('#allCount').change(function(){
+    all = $('#allCount').val();
+  });
+  for(var i=1;i<=all;i++){
+  	code.push(i)
+  }
+	
+	var voice = document.getElementById("voice");
+
+  /*随机所有的code并且不重复*/
+  function showRandomNum(num) {
+    var li = "";
+    code.sort(function(){//随机排序
+      return 0.5 - Math.random();
+    });
+
+
+    for(var i = 0; i < num; i++){
+      li += '<li>'+code[i]+'</li>';
+    }
+	 
+    $(".prize_list ul").html(li);
+    
+  }
+
+  $(function () {
+    $(".start").click(function(){
+      if($("#prize_btn").val() == 0){        
+        if($("#set_grade").val() == "选择奖项") {
+            alert("请选择奖项");
+            return;
+        }else if($("#prizeCount").val() == "") {
+            alert("请输入中奖人数");
+            return;
+        }else if($("#prizeCount").val() > 10) {
+            alert("单次抽奖人数不能超过10人");
+            return;
+        }else{
+          $("#prize_btn").val(1);
+          var num = $("#prizeCount").val();
+          $(this).find("img").attr("src","images/prize_stop.png");
+
+          myNumber = setInterval(function(){
+            showRandomNum(num);
+          }, 10);
+          voice.src = "m1.mp3";
+          voice.play()
+        }   
+      }else{
+ 				voice.src = "m02.wav";
+ 				voice.play();
+        $("#prize_btn").val(0);
+      
+        $('.vetically li').each(function(){
+        	var n =$(this).text();
+        	code.splice($.inArray(n,1))
+        	arr.push(n)
+        });
+      
+        clearInterval(myNumber);
+        $(this).find("img").attr("src","images/prize_start.png");
+				
+      }      
+    });
+
+    //回车键控制开始和停止
+    $(document).keydown(function (event) {
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if (e && e.keyCode == 13) { // enter 键
+            $(".start").click();
+        }
+    });
+
+    $("#set_grade").change(function(){
+      $(".prize_grade span").text($(this).val());
+    });
+
+}); 
+</script>
+</body>
+</html>
