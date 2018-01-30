@@ -32,10 +32,10 @@
           <li class="set_grade">奖项
             <select id="set_grade">
               <option>选择奖项</option>
-              <option>纪念奖</option>
-              <option>一等奖</option>
-              <option>二等奖</option>
-              <option>三等奖</option>
+              <option value="纪念奖">纪念奖</option>
+              <option value="一等奖">一等奖</option>
+              <option value="二等奖">二等奖</option>
+              <option value="三等奖">三等奖</option>
             </select>
           </li>
           <li class="set_people">中奖人数<input type="num" id="prizeCount"></li>
@@ -53,7 +53,7 @@
 <input type="hidden" value="0" id="prize_btn">
 <script>
   var myNumber;
-  var arr = [];
+  var result = [];//抽奖结果
   var code = [];//总人数
 //var all = $('#allCount').val();
 	var all = '';
@@ -113,14 +113,22 @@
  				voice.src = "m02.wav";
  				voice.play();
         $("#prize_btn").val(0);
-      
+      	var arr = [];//当前中奖号码
         $('.vetically li').each(function(){
         	var n =$(this).text();
         	code.splice($.inArray(n,1))
         	arr.push(n)
         });
+        var k = $(".prize_grade span").text();
+        console.log(k)
+        var now = {
+        	name: k,
+        	data: arr
+        }
+        result.push(now);
         console.log("中奖号码："+arr);
       	console.log("剩余抽奖人数为:"+code.length);
+      	console.log(result)
       	
         clearInterval(myNumber);
         $(this).find("img").attr("src","images/prize_start.png");
