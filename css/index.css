@@ -35,7 +35,7 @@ i {
 .prize_list {
 	width: 55%;
 	height: 220px;
-	margin: 20px auto 20px;
+	margin: 0 auto;
 	text-align: center;
 	overflow: hidden;
 }
@@ -95,7 +95,7 @@ i {
 	width: 400px;
 	text-align: center;
 	
-	margin: 40px auto;
+	margin: 20px auto;
 	color: #ffe9af;
 }
 .company p {
