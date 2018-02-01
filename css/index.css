@@ -10,7 +10,19 @@ img {
 i {
 	font-style: normal;
 }
-
+.clear {
+	width: 100px;
+	height: 100px;
+	border:1px solid transparent;
+	border-radius: 50%;
+	position:absolute;
+	top:120px;
+	left: 100px;
+	cursor: pointer;
+}
+.clear:hover {
+	border:1px solid #ffe9af;
+}
 .vetically {
 	justify-content: center;
 	align-items: center;

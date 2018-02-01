@@ -92,6 +92,9 @@ $("#set_grade").change(function(){
 
 
 //页面刷新时调用
+$('.clear').click(function(){
+	localStorage.clear(); 
+});
 //$(window).on('beforeunload', function(event) {
 //  localStorage.clear(); 
 //});
