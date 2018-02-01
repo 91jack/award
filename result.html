@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+<style type="text/css">
+.prize_con {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(images/firstp_bg.jpg) no-repeat left top / 100% 100%;
+	/*overflow: hidden;*/
+}
+</style>
+<title>2018年会抽奖</title>
+</head>
+<body>
+<div class="wrap">
+  <div class="prize_con">
+      <p class="prize_grade"><span>抽奖结果</span></p>
+      <ul class="result-box">
+      	<li v-for="(list,index) in result">
+      		<h2><span>{{index+1}}</span>{{list.name}}</h2>
+      		<div>{{list.data}}</div>
+      	</li>
+      </ul>
+     
+      <div class="company">
+	  	<p>重庆同港资产管理有限公司</p>
+	  	<p>重庆渝先通信设备有限公司</p>
+	  	<p>重庆渐臻科技有限公司</p>
+	  	<p>重庆圣雅广告传媒有限公司</p>
+	  </div>
+  </div>
+</div>
+	
+	
+<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var localstroage = window.localStorage;  
+	var result = JSON.parse(localstroage.getItem('result'));
+	
+	var vm = new Vue({
+		el:'.result-box',
+		data:{
+			result:result
+		}
+	});
+	
+</script>
+</body>
+</html>
