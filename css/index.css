@@ -71,19 +71,20 @@ i {
 	line-height: 30px;
 }
 .prize_set li:first-child {
-	display: block;
-	margin-bottom: 10px;
+	/*display: block;
+	margin-bottom: 10px;*/
 }
 .prize_set li {
-	display: inline-block;
-	
-	margin-left: 20px;
+	/*display: inline-block;*/
+	margin: 10px;
+	/*margin-left: 20px;*/
 }
 
 .set_grade select,
 .set_people input,
 .all_people input {
 	background: #fff;
+	
 	width: 80px;
 	height: 36px;
 	border: 1px solid #8f0000;
@@ -115,7 +116,8 @@ input:focus {
 }
 
 .res-btn {
-	
+	clear: both;
+	display: block;
 }
 .res-btn a {
 	text-decoration: none;
