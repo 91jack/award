@@ -26,7 +26,7 @@ i {
 }
 
 .prize_grade {
-	font-size: 80px;
+	font-size: 92px;
 	color: #ffe9af;
 	text-align: center;
 	margin: 50px auto 0;
@@ -70,9 +70,13 @@ i {
 	color: #f7f3e8;
 	line-height: 30px;
 }
-
+.prize_set li:first-child {
+	display: block;
+	margin-bottom: 10px;
+}
 .prize_set li {
 	display: inline-block;
+	
 	margin-left: 20px;
 }
 
@@ -83,10 +87,16 @@ i {
 	width: 80px;
 	height: 36px;
 	border: 1px solid #8f0000;
-	margin-left: .1rem;
+	border-radius: 10px;
+	margin-left: .5rem;
 	color: #000;
 	padding-left: 10px;
 }
+select:focus,
+input:focus {
+	outline: none;
+}
+
 .set_people input,
 .all_people input {
 	width: 50px;
