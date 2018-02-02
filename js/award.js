@@ -8,8 +8,12 @@ $('#allCount').change(function(){
 	all = $('#allCount').val();
 	$(this).attr('disabled','disabled');
 	for(var i=1;i<=all;i++){
-		code.push(i)
+		if(i != 250){
+    		code.push(i)
+    	}
+		
 	}
+	//console.log(code);
 });
  
 var voice = document.getElementById("voice");
@@ -64,7 +68,9 @@ $(".start").click(function(){
   	var arr = [];//当前中奖号码
     $('.vetically li').each(function(){
     	var n = parseInt($(this).text());
+    	
     	code.splice($.inArray(n,code),1)
+    	
     	arr.push(n)
     });
     var k = $(".prize_grade span").text();
