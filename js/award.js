@@ -79,7 +79,7 @@ $(".start").click(function(){
     	name: k,
     	data: arr
     }
-    result.unshift(now);
+    result.push(now);
     console.log("中奖号码："+arr);
   	console.log("剩余抽奖人数为:"+code.length);
   	
