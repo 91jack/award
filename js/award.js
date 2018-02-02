@@ -13,7 +13,7 @@ $('#allCount').change(function(){
     	}
 		
 	}
-	//console.log(code);
+	console.log(code);
 });
  
 var voice = document.getElementById("voice");
