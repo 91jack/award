@@ -101,8 +101,5 @@ $("#set_grade").change(function(){
 $('.clear').click(function(){
 	localStorage.clear(); 
 });
-//$(window).on('beforeunload', function(event) {
-//  localStorage.clear(); 
-//});
 
   

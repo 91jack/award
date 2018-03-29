@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+# 2018 公司年会抽奖程序
+## 效果预览
+* 抽奖页面
+![](images/award1.png)
 
-You can use the [editor on GitHub](https://github.com/TaoSir1213/award/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+* 抽奖结果
+![](images/award2.png)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## 使用说明
+在抽奖之前，需要先输入抽奖人数
+选择当前奖项（一等奖、二等奖、三等奖、纪念奖）
+当前奖项中奖人数（每轮最多抽10人）
 
-### Markdown
+本抽奖程序，采取不重复机制。
+【注意】在整个抽奖过程中，不要刷新抽奖页面，结果页面可刷新
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/TaoSir1213/award/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
